@@ -40,26 +40,23 @@ giant-mart-sales-leakage-case-study/
 │   └── Sales_Leakage_Diagnosis.pbix   <-- Interactive Power BI dashboard workbook
 └── visuals/
     └── Sales_Leakage_Dashboard.png    <-- High-resolution dashboard screenshot
-
----
-
-
+```
 
 ## Data Preparation & DAX Modeling
 
 ### 2.1 Dataset Architecture
-The case study utilizes a consolidated relational dataset (`data/GiantMart_Cleaned_Dataset.csv`) representing 15 months of multi-branch supermarket operations[cite: 1, 4]. The schema standardizes operational metrics across three primary dimensions:
+The case study utilizes a consolidated relational dataset (`data/GiantMart_Cleaned_Dataset.csv`) representing 15 months of multi-branch supermarket operations. The schema standardizes operational metrics across three primary dimensions:
 
-* **Temporal Attributes:** `Date`, `Year` (2025–2026), `Month`[cite: 4]
-* **Spatial & Administrative Attributes:** `Store_Location` (Accra, Kumasi, Tamale), `Store_Manager`[cite: 1, 2]
-* **Product Catalog Attributes:** `Product_Category` (Electronics, Groceries, Home Decor, Fresh Produce), `Product_Name`, `Unit_Cost` (COGS), `Unit_Price` (Shelf Price)[cite: 1]
-* **Transactional Attributes:** `Qty_Sold`, `Discount_Applied` (0.00 to 0.40)[cite: 1]
+* **Temporal Attributes:** `Date`, `Year` (2025–2026), `Month`
+* **Spatial & Administrative Attributes:** `Store_Location` (Accra, Kumasi, Tamale), `Store_Manager`
+* **Product Catalog Attributes:** `Product_Category` (Electronics, Groceries, Home Decor, Fresh Produce), `Product_Name`, `Unit_Cost` (COGS), `Unit_Price` (Shelf Price)
+* **Transactional Attributes:** `Qty_Sold`, `Discount_Applied` (0.00 to 0.40)
 
 ### 2.2 Data Integrity & Transformation Audit
 Before constructing Power BI report pages, data validation checks were applied during the ETL/cleaning process:
-1. **Missing Values & Nulls:** Verified zero blank records across transactional IDs, store keys, or product prices[cite: 1].
-2. **Boundary Validation:** Verified that `Discount_Applied` values sit between $0.00$ ($0\%$) and $0.40$ ($40\%$), and `Qty_Sold` remains strictly positive[cite: 1].
-3. **Price Logic Verification:** Verified `Unit_Price` $\ge$ `Unit_Cost` at base catalog level to ensure baseline product profitability[cite: 1].
+1. **Missing Values & Nulls:** Verified zero blank records across transactional IDs, store keys, or product prices[.
+2. **Boundary Validation:** Verified that `Discount_Applied` values sit between $0.00$ ($0\%$) and $0.40$ ($40\%$), and `Qty_Sold` remains strictly positive.
+3. **Price Logic Verification:** Verified `Unit_Price` $\ge$ `Unit_Cost` at base catalog level to ensure baseline product profitability.
 
 ### 2.3 Core DAX Measures (Power BI Metric Engine)
 To dynamically calculate financial metrics across slicers (Year, Month, Location, Product Category), the following DAX measures were implemented in Power BI:
@@ -95,11 +92,9 @@ Net Profit = [Net Revenue] - [COGS]
 // 6. Net Profit Margin % (Percentage of collected cash retained as profit)
 Net Profit Margin % = 
 DIVIDE([Net Profit], [Net Revenue], 0) * 100
+```
 
-
----
-
-## 📌 Phase 3: Analysis & Visual Architecture
+## Analysis & Visual Architecture
 
 ### 3.1 Executive Dashboard Overview
 The **Sales Leakage Diagnosis Dashboard** was constructed in Power BI to give executive stakeholders an immediate visual breakdown of top-line revenue versus profit retention.
@@ -136,3 +131,34 @@ The dashboard layout is structured into three diagnostic zones:
 #### 2. The Electronics Discount Trap
 * Deep discounting on high-cost inventory (specifically **Smart TV 43"**) creates severe negative-margin transactions.
 * While discounts between 0% and 15% maintain healthy margins, applying **25% to 40% markdowns** pushes unit prices below wholesale supplier costs (COGS), causing Giant-Mart to actively lose up to **GH₵580 per unit sold**.
+
+---
+
+## Recommendations & Strategic Impact (ACT Phase)
+
+### 4.1 Operational Policy Guardrails
+To prevent further profit margin erosion while maintaining sales velocity, Giant-Mart should implement three core operational policy controls:
+
+1. **Automated POS Discount Caps:**
+   * Configure point-of-sale checkout software to hard-lock maximum discount allowances by product category.
+   * Cap **Electronics** markdowns at **15%** maximum. Any discount request above 15% must require CFO or Commercial Director authorization in the system.
+
+2. **Profit-First Manager Incentive Structure:**
+   * Restructure store manager performance evaluations and quarterly bonus pools.
+   * Shift primary evaluation criteria from **Gross Sales Volume** to **Retained Net Profit Margin (%)**, aligning branch leadership incentives with bottom-line business health.
+
+3. **Margin-Floor Checkout Safeguards:**
+   * Program POS registers to calculate real-time unit margins prior to printing receipts.
+   * Automatically block any transaction where $\text{Net Price} < \text{COGS}$ to completely eliminate negative-margin sales on high-ticket inventory like Smart TVs.
+
+### 4.2 Projected Commercial Impact
+* **Direct Loss Recovery:** Immediate mitigation of negative-margin sales, preserving estimated tens of thousands of cedis annually in lost inventory value.
+* **Margin Alignment:** Elevation of Kumasi’s retained net profit margin from **17.72%** toward the corporate target of **20%+**.
+* **Overall Profitability Expansion:** Projected expansion of global retained net profit margin from **18.72%** to above **20.5%** across all regional operations within 6 months.
+
+---
+
+## 🛠 Tech Stack & Tools Used
+* **Power BI:** Data modeling, DAX measure creation, dynamic KPI card construction, and interactive dashboard layout.
+* **Excel / Data Cleaning:** Dataset normalization, baseline cost validation, and schema structuring.
+* **GitHub:** Documentation, version control, and case study publishing.
