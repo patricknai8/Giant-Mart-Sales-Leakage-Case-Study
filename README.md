@@ -37,15 +37,15 @@ giant-mart-sales-leakage-case-study/
 ├── data/
 │   └── Giant_Mart_Cleaned_Dataset.csv  <-- Cleaned operational dataset
 ├── dashboards/
-│   └── Sales_Leakage_Diagnosis.pbix   <-- Interactive Power BI dashboard workbook
+│   └── Giant_Mart_Sales_Leakage.pbix   <-- Interactive Power BI dashboard workbook
 └── visuals/
-    └── Sales_Leakage_Dashboard.png    <-- High-resolution dashboard screenshot
+    └── Giant_Mart_Dashboard.png    <-- High-resolution dashboard screenshot
 ```
 
 ## Data Preparation & DAX Modeling
 
 ### 2.1 Dataset Architecture
-The case study utilizes a consolidated relational dataset (`data/GiantMart_Cleaned_Dataset.csv`) representing 15 months of multi-branch supermarket operations. The schema standardizes operational metrics across three primary dimensions:
+The case study utilizes a consolidated relational dataset (`data/Giant_Mart_Cleaned_Dataset.csv`) representing 15 months of multi-branch supermarket operations. The schema standardizes operational metrics across three primary dimensions:
 
 * **Temporal Attributes:** `Date`, `Year` (2025–2026), `Month`
 * **Spatial & Administrative Attributes:** `Store_Location` (Accra, Kumasi, Tamale), `Store_Manager`
