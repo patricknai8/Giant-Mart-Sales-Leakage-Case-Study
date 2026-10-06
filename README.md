@@ -1,12 +1,10 @@
 # Giant-Mart-Sales-Leakage-Case-Study
 End-to-end retail diagnostic case study analyzing GH₵4.92M in net revenue across 3 regional branches in Ghana. Features a Power BI Sales Leakage Diagnosis Dashboard to expose unoptimized discounting and protect net profit margins
 
-# Giant-Mart Sales Leakage Case Study
-> **End-to-end retail diagnostic case study analyzing GH₵4.92M in net revenue across 3 regional branches in Ghana. Features a Power BI Sales Leakage Diagnosis Dashboard to expose unoptimized discounting and protect net profit margins.**[cite: 4]
 
 ---
 
-## 📌 Phase 1: Project Setup & Framework
+## Project Setup & Framework
 
 ### 1.1 Business Case & Problem Statement
 **Client Identity:** Giant-Mart Ghana (Simulated FMCG Regional Supermarket Chain)  
