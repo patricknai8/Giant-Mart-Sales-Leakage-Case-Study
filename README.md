@@ -99,7 +99,7 @@ DIVIDE([Net Profit], [Net Revenue], 0) * 100
 ### 3.1 Executive Dashboard Overview
 The **Sales Leakage Diagnosis Dashboard** was constructed in Power BI to give executive stakeholders an immediate visual breakdown of top-line revenue versus profit retention.
 
-
+<img width="987" height="552" alt="Image" src="https://github.com/user-attachments/assets/4fef4752-1b88-4b5c-9722-67a25d3214bb" />
 
 ### 3.2 Visual Component Mapping
 The dashboard layout is structured into three diagnostic zones:
