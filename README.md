@@ -160,5 +160,5 @@ To prevent further profit margin erosion while maintaining sales velocity, Giant
 
 ## 🛠 Tech Stack & Tools Used
 * **Power BI:** Data modeling, DAX measure creation, dynamic KPI card construction, and interactive dashboard layout.
-* **Excel / Data Cleaning:** Dataset normalization, baseline cost validation, and schema structuring.
+* **SQL / Data Cleaning:** Dataset normalization, baseline cost validation, and schema structuring.
 * **GitHub:** Documentation, version control, and case study publishing.
